@@ -16,7 +16,7 @@ TagManager:
   - UI
   - ground
   - text
-  - 
+  - finish
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: text
     uniqueID: 3613255615
+    locked: 0
+  - name: finish
+    uniqueID: 2547142031
     locked: 0
