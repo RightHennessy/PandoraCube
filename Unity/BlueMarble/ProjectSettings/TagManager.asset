@@ -15,7 +15,7 @@ TagManager:
   - Water
   - UI
   - ground
-  - 
+  - text
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: star
     uniqueID: 3899511101
+    locked: 0
+  - name: text
+    uniqueID: 3613255615
     locked: 0
