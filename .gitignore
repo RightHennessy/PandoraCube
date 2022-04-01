@@ -17,3 +17,5 @@ Unity/BlueMarble/Library/Artifacts/
 *.json
 Unity/BlueMarble/Temp/
 Unity/BlueMarble/Library/
+*.asset
+Unity/BlueMarble/Library/InspectorExpandedItems.asset

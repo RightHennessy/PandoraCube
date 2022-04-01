@@ -5336,6 +5336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diceImg: {fileID: 1280688821}
+  btnRoll: {fileID: 1434732404}
 --- !u!1 &1457631342
 GameObject:
   m_ObjectHideFlags: 0

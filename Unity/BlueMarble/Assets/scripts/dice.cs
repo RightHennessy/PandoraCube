@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class dice : MonoBehaviour
 {
     public GameObject diceImg;
+    public GameObject btnRoll;
     Sprite[] sprites;
     int isDice = 0;
     int index;
@@ -35,8 +36,10 @@ public class dice : MonoBehaviour
     IEnumerator Dice()
     {
         int diceNum = Random.Range(0,6);
+        btnRoll.GetComponent<Button>().interactable = false;
 
-        for(double f = 3f; f>=0; f -= 0.1)
+
+        for (double f = 3f; f>=0; f -= 0.1)
         {
             index = Random.Range(0,6);
             diceImg.GetComponent<Image>().sprite = sprites[index];
@@ -45,7 +48,7 @@ public class dice : MonoBehaviour
         }
 
         diceImg.GetComponent<Image>().sprite = sprites[diceNum];
-
+        btnRoll.GetComponent<Button>().interactable = true;
     }
     
 }
