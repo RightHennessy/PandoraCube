@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     int i;
     int now;
     int next;
-    float timer = 0;
     int nowMoney;
     public Text myMoneyNow;
     int laps = 0;
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
         if (next != now)
         {
             now = next;
-            btnBuyBuilding.SetActive(true);
+            getBuilding();
         }
 
         // 게임 종료 시점 결정
@@ -61,38 +60,47 @@ public class GameManager : MonoBehaviour
 
     public void OnClickBuyBuildingButton()
     {
-        getBuilding();
+        canBuyBuilding();
     }
 
     public void getBuilding()
     {
-        btnBuyBuilding.SetActive(false);
 
-        /* 한바퀴 돈 경우 
         if (now == 0)
         {
             nowMoney += 200000;
         }
-        */
-        if (now == 0 || now == 8 || now == 13 || now == 21)
-            return;
 
-        Debug.Log("현재 위치 : " + now);
+        if (now == 0 || now == 8 || now == 13 || now == 21)
+        {
+            btnBuyBuilding.SetActive(false);
+            return;
+        }
+
 
         // 구매가능한 경우
         if (starSet[now].activeSelf == false)
         {
-            starSet[now].SetActive(true);
-            textSet[now].SetActive(false);
-            nowMoney -= 20000;
-            myMoneyNow.text = nowMoney.ToString();
+            btnBuyBuilding.SetActive(true);
+            
         }
         // 이미 구매한 경우
         else
+        {
+            btnBuyBuilding.SetActive(false);
             return;
+        }
 
     }
 
+    public void canBuyBuilding()
+    {
+        starSet[now].SetActive(true);
+        textSet[now].SetActive(false);
+        nowMoney -= 20000;
+        myMoneyNow.text = nowMoney.ToString();
+        btnBuyBuilding.SetActive(false);
+    }
 
 
 
