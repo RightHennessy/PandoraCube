@@ -8,7 +8,7 @@ public class playerMove : MonoBehaviour
     [SerializeField] float speed = 20f;
     int start = 7;
     int index = 0;
-    int move = 6;
+    int move;
     int laps = 0;
     int cnt = 0;
     float n = (float)0.1;
@@ -22,7 +22,7 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
         MovePath();
         Vector2 dir = groundPos[start + index].transform.position - transform.position; 
         transform.Translate(dir.normalized * speed * Time.deltaTime * n, Space.World);
