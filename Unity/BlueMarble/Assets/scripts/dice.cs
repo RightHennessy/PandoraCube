@@ -51,7 +51,7 @@ public class dice : MonoBehaviour
         diceImg.GetComponent<Image>().sprite = sprites[diceNum];
         btnRoll.GetComponent<Button>().interactable = true;
 
-        srcDice = diceNum;
+        srcDice = diceNum +1;
     }
     
 }
