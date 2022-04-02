@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] starSet;
     [SerializeField] GameObject[] textSet;
+    public GameObject btnBuyBuilding;
+
     int i;
     int now;
     int next;
@@ -31,14 +33,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("시작 위치 : " + next);
         if (next != now)
         {
-            timer += Time.deltaTime;
-            if (timer > 3f)
-            {
-                timer = 0;
-                now = next;
-                getBuilding();
-            }
-
+            now = next;
+            btnBuyBuilding.SetActive(true);
         }
     }
 
@@ -56,8 +52,15 @@ public class GameManager : MonoBehaviour
         #endif
     }
 
+    public void OnClickBuyBuildingButton()
+    {
+        getBuilding();
+    }
+
     public void getBuilding()
     {
+        btnBuyBuilding.SetActive(false);
+
         /* 한바퀴 돈 경우 
         if (now == 0)
         {
@@ -70,18 +73,20 @@ public class GameManager : MonoBehaviour
         Debug.Log("현재 위치 : " + now);
 
         // 구매가능한 경우
-        if(starSet[now].activeSelf == false)
+        if (starSet[now].activeSelf == false)
         {
             starSet[now].SetActive(true);
             textSet[now].SetActive(false);
             nowMoney -= 20000;
             myMoneyNow.text = nowMoney.ToString();
-         } 
+        }
         // 이미 구매한 경우
         else
             return;
-        
+
     }
 
-  
+
+
+
 }
