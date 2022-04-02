@@ -19,3 +19,7 @@ Unity/BlueMarble/Temp/
 Unity/BlueMarble/Library/
 *.asset
 Unity/BlueMarble/Library/InspectorExpandedItems.asset
+*.log
+Unity/BlueMarble/Library/ArtifactDB
+Unity/BlueMarble/Library/SceneVisibilityState.asset
+Unity/BlueMarble/Library/SourceAssetDB
