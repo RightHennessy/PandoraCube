@@ -172,10 +172,10 @@ Transform:
   - {fileID: 1938580542}
   - {fileID: 1517762289}
   - {fileID: 1864806139}
-  - {fileID: 773519097}
-  - {fileID: 1614636163}
-  - {fileID: 1533946001}
   - {fileID: 2070492775}
+  - {fileID: 1533946001}
+  - {fileID: 1614636163}
+  - {fileID: 773519097}
   m_Father: {fileID: 1851013892}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1388,8 +1388,9 @@ MonoBehaviour:
   - {fileID: 1666515929}
   - {fileID: 80111934}
   - {fileID: 765264309}
-  speed: 3
+  speed: 40
   srcStart: 0
+  srcLaps: 0
 --- !u!1 &189414173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3708,7 @@ GameObject:
   - component: {fileID: 773519097}
   - component: {fileID: 773519096}
   m_Layer: 0
-  m_Name: star (18)
+  m_Name: star (21)
   m_TagString: star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3776,7 +3777,7 @@ Transform:
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children: []
   m_Father: {fileID: 2552688}
-  m_RootOrder: 22
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &785045033
 GameObject:
@@ -5640,7 +5641,7 @@ MonoBehaviour:
   diceImg: {fileID: 1280688821}
   btnRoll: {fileID: 1434732404}
   srcDice: 0
-  cnt: 0
+  srcCnt: 0
 --- !u!1 &1457631342
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,7 +6071,7 @@ GameObject:
   - component: {fileID: 1533946001}
   - component: {fileID: 1533946000}
   m_Layer: 0
-  m_Name: star (20)
+  m_Name: star (19)
   m_TagString: star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6139,7 +6140,7 @@ Transform:
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children: []
   m_Father: {fileID: 2552688}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1546866553
 GameObject:
@@ -6519,7 +6520,7 @@ GameObject:
   - component: {fileID: 1614636163}
   - component: {fileID: 1614636162}
   m_Layer: 0
-  m_Name: star (19)
+  m_Name: star (20)
   m_TagString: star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6588,7 +6589,7 @@ Transform:
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children: []
   m_Father: {fileID: 2552688}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1644523730
 GameObject:
@@ -8481,7 +8482,7 @@ GameObject:
   - component: {fileID: 2070492775}
   - component: {fileID: 2070492774}
   m_Layer: 0
-  m_Name: star (21)
+  m_Name: star (18)
   m_TagString: star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8550,7 +8551,7 @@ Transform:
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children: []
   m_Father: {fileID: 2552688}
-  m_RootOrder: 25
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2093660939
 GameObject:

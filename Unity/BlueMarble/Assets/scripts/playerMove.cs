@@ -5,13 +5,14 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     [SerializeField] Transform[] groundPos;
-    [SerializeField] float speed = 5f;
+    [SerializeField] float speed = 20f;
     int now = 0;
     int target = 0;
     int move =0;
     int bringCnt;
     int compareCnt;
     int laps = 0;
+    float n = (float)0.1;
     
 
     public int srcStart;
@@ -38,6 +39,7 @@ public class playerMove : MonoBehaviour
             MovePath();
         else
         {
+            srcLaps = laps;
             Debug.Log("실행중지");
             bringCnt = GameObject.Find("btnDice").GetComponent<dice>().srcCnt;
             if(bringCnt != compareCnt)
@@ -48,7 +50,7 @@ public class playerMove : MonoBehaviour
         }
         
         Vector2 dir = groundPos[(now)%26].transform.position - transform.position; 
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * speed * Time.deltaTime*n, Space.World);
         
     }
 
@@ -70,7 +72,7 @@ public class playerMove : MonoBehaviour
         if (now % 26 == 0)
         {
             laps++;
-            srcLaps = laps;
+            
         }
 
         return;
