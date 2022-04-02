@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] starSet;
     [SerializeField] GameObject[] textSet;
     public GameObject btnBuyBuilding;
+    public GameObject finishCanvas;
 
     int i;
     int now;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     float timer = 0;
     int nowMoney;
     public Text myMoneyNow;
+    int laps = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,11 @@ public class GameManager : MonoBehaviour
             now = next;
             btnBuyBuilding.SetActive(true);
         }
+
+        // 게임 종료 시점 결정
+        if (laps > 5)
+            finishCanvas.SetActive(true);
+
     }
 
     public void OnClickStartButton()

@@ -8440,6 +8440,7 @@ MonoBehaviour:
   - {fileID: 683476470}
   - {fileID: 111113393}
   btnBuyBuilding: {fileID: 752550103}
+  finishCanvas: {fileID: 1686800968}
   myMoneyNow: {fileID: 443002920}
 --- !u!4 &1977280865
 Transform:
