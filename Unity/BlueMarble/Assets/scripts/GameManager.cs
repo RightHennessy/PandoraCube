@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject[] starSet;
     [SerializeField] GameObject[] textSet;
+    int i;
     int now;
     int next;
+    float timer = 0;
     int nowMoney;
+    public Text myMoneyNow;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +21,7 @@ public class GameManager : MonoBehaviour
         now = 0;
         next = 0;
         nowMoney = 500000;
+        myMoneyNow.text = "500000";
     }
 
     // Update is called once per frame
@@ -26,8 +31,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("시작 위치 : " + next);
         if (next != now)
         {
-            now = next;
-            getBuilding();
+            timer += Time.deltaTime;
+            if (timer > 3f)
+            {
+                timer = 0;
+                now = next;
+                getBuilding();
+            }
+
         }
     }
 
@@ -64,10 +75,13 @@ public class GameManager : MonoBehaviour
             starSet[now].SetActive(true);
             textSet[now].SetActive(false);
             nowMoney -= 20000;
+            myMoneyNow.text = nowMoney.ToString();
          } 
         // 이미 구매한 경우
         else
             return;
         
     }
+
+  
 }

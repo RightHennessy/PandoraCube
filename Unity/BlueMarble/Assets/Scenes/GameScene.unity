@@ -8427,6 +8427,7 @@ MonoBehaviour:
   - {fileID: 533289622}
   - {fileID: 683476470}
   - {fileID: 111113393}
+  myMoneyNow: {fileID: 443002920}
 --- !u!4 &1977280865
 Transform:
   m_ObjectHideFlags: 0
