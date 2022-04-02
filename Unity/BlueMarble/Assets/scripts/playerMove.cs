@@ -6,13 +6,12 @@ public class playerMove : MonoBehaviour
 {
     [SerializeField] Transform[] groundPos;
     [SerializeField] float speed = 20f;
-    int start = 7;
+    int start = 0;
     int index = 0;
     int move;
     int laps = 0;
-    int cnt = 0;
-    float n = (float)0.1;
-
+    public int srcStart=0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,25 +21,52 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
-        MovePath();
-        Vector2 dir = groundPos[start + index].transform.position - transform.position; 
-        transform.Translate(dir.normalized * speed * Time.deltaTime * n, Space.World);
-
+        if (move == 0)
+            move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
+        else if (move > 0)
+            MovePath();
+        else if (move < 0)
+            move--;
+        
+        Vector2 dir = groundPos[(start + index)%26].transform.position - transform.position; 
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        
     }
 
     public void MovePath()
     {
+        int check = move;
 
         transform.position = Vector2.MoveTowards
-            (transform.position, groundPos[start + index].transform.position, speed * Time.deltaTime);
+            (transform.position, groundPos[(start + index)%26].transform.position, speed * Time.deltaTime);
 
         if (index < move)
             index++;
-        
-        
+        else if (index == move)
+        {
+            start += move;
+            start %= 26;
+            srcStart = start;
+            move = -1;
+            index = 0;
+
+            while (check == move)
+            {
+                move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
+                StartCoroutine(Stop());
+            }
+
+        }
+
+
         if (start + index == groundPos.Length)
             laps++;
 
     }
+    
+    IEnumerator Stop()
+    {
+         yield return null;
+    }
+    
 }
