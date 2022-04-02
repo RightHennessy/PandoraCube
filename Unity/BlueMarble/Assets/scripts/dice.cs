@@ -11,6 +11,7 @@ public class dice : MonoBehaviour
     Sprite[] sprites;
     int isDice = 0;
     int index;
+    public int srcDice;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class dice : MonoBehaviour
         btnRoll.GetComponent<Button>().interactable = false;
 
 
-        for (double f = 3f; f>=0; f -= 0.1)
+        for (double f = 2.5f; f>=0; f -= 0.1)
         {
             index = Random.Range(0,6);
             diceImg.GetComponent<Image>().sprite = sprites[index];
@@ -49,6 +50,8 @@ public class dice : MonoBehaviour
 
         diceImg.GetComponent<Image>().sprite = sprites[diceNum];
         btnRoll.GetComponent<Button>().interactable = true;
+
+        srcDice = diceNum;
     }
     
 }
