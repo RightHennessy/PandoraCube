@@ -385,7 +385,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1179552307}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: sceneMove, Assembly-CSharp
         m_MethodName: OnClickStartButton
         m_Mode: 1
         m_Arguments:
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1179552306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a291c9a37ecd041a582185cb1e3217, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e23a26dd8e37d24488b2c5997f2206b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1179552308
@@ -640,7 +640,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1179552307}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: sceneMove, Assembly-CSharp
         m_MethodName: OnClickExitButton
         m_Mode: 1
         m_Arguments:

@@ -979,8 +979,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1977280864}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1977280866}
+        m_TargetAssemblyTypeName: sceneMove, Assembly-CSharp
         m_MethodName: OnClickExitButton
         m_Mode: 1
         m_Arguments:
@@ -5640,6 +5640,7 @@ MonoBehaviour:
   diceImg: {fileID: 1280688821}
   btnRoll: {fileID: 1434732404}
   srcDice: 0
+  cnt: 0
 --- !u!1 &1457631342
 GameObject:
   m_ObjectHideFlags: 0
@@ -8366,6 +8367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977280865}
   - component: {fileID: 1977280864}
+  - component: {fileID: 1977280866}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -8456,6 +8458,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1977280866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977280863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e23a26dd8e37d24488b2c5997f2206b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2070492773
 GameObject:
   m_ObjectHideFlags: 0
