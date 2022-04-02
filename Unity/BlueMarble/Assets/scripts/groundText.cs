@@ -10,7 +10,7 @@ public class groundText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        priceText.text = "20,000¿ø";
+        priceText.text = "50,000¿ø";
     }
 
     // Update is called once per frame

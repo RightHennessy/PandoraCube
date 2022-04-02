@@ -5,72 +5,73 @@ using UnityEngine;
 public class playerMove : MonoBehaviour
 {
     [SerializeField] Transform[] groundPos;
-    [SerializeField] float speed = 20f;
-    int start = 0;
-    int index = 0;
-    int move;
+    [SerializeField] float speed = 5f;
+    int now = 0;
+    int target = 0;
+    int move =0;
     int bringCnt;
     int compareCnt;
-
     int laps = 0;
+    
 
-    public int srcStart=0;
+    public int srcStart;
+    public int srcLaps;
     
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = groundPos[start].transform.position;
+        transform.position = groundPos[now].transform.position;
         bringCnt = 0;
         compareCnt = 1;
-        move = 0;
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()   
     {
+
         if (move == 0)
+        {
             move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
-        
-        if (move > 0)
+            target = now + move;
+        }
+        else if (move > 0)
             MovePath();
+        else
+        {
+            Debug.Log("실행중지");
+            bringCnt = GameObject.Find("btnDice").GetComponent<dice>().srcCnt;
+            if(bringCnt != compareCnt)
+            {
+                compareCnt=bringCnt;
+                move = 0;
+            }
+        }
         
-        Vector2 dir = groundPos[(start + index)%26].transform.position - transform.position; 
+        Vector2 dir = groundPos[(now)%26].transform.position - transform.position; 
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         
     }
 
     public void MovePath()
     {
-        int check = move;
 
         transform.position = Vector2.MoveTowards
-            (transform.position, groundPos[(start + index)%26].transform.position, speed * Time.deltaTime);
+            (transform.position, groundPos[(now)%26].transform.position, speed * Time.deltaTime);
 
-        if (index < move)
-            index++;
-        else if (index == move)
+        if (now < target)
+            now++;
+        else if (now == target)
         {
-            start += move;
-            start %= 26;
-            srcStart = start;
+            srcStart = now%26;
+            move = -1;
 
-            while (true)
-            {
-                bringCnt = GameObject.Find("btnDice").GetComponent<dice>().cnt;
-                
-                if(bringCnt != compareCnt)
-                {
-                    compareCnt = bringCnt;
-                    move=0;
-                    break;
-                }
-            }
         }
 
-        // 여기에 몇바퀴 돌았는지 체크 
-        /*if (start + index == groundPos.Length)
+        if (now % 26 == 0)
+        {
             laps++;
-        */
+            srcLaps = laps;
+        }
 
         return;
        

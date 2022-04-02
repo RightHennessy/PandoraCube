@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     int next;
     int nowMoney;
     public Text myMoneyNow;
-    int laps = 0;
+    int bringLaps = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +31,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         next = GameObject.Find("player").GetComponent<playerMove>().srcStart;
-        Debug.Log("시작 위치 : " + next);
         if (next != now)
         {
             now = next;
             getBuilding();
         }
 
+
         // 게임 종료 시점 결정
-        if (laps > 5)
+        bringLaps = GameObject.Find("player").GetComponent<playerMove>().srcLaps;
+        if (bringLaps == 5)
             finishCanvas.SetActive(true);
 
     }
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
 
 
         // 구매가능한 경우
-        if (starSet[now].activeSelf == false && nowMoney >= 20000)
+        if (starSet[now].activeSelf == false && nowMoney >= 50000)
         {
             btnBuyBuilding.SetActive(true);
             
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         starSet[now].SetActive(true);
         textSet[now].SetActive(false);
-        nowMoney -= 20000;
+        nowMoney -= 50000;
         myMoneyNow.text = nowMoney.ToString();
         btnBuyBuilding.SetActive(false);
     }
