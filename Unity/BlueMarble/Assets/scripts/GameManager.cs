@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     int nowMoney;
     public Text myMoneyNow;
     int bringLaps = 0;
+    int checkLaps = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +41,15 @@ public class GameManager : MonoBehaviour
 
         // 게임 종료 시점 결정
         bringLaps = GameObject.Find("player").GetComponent<playerMove>().srcLaps;
-        if (bringLaps == 5)
+        if (bringLaps > 5)
             finishCanvas.SetActive(true);
+
+        if (checkLaps < bringLaps && bringLaps <= 5)
+        {
+            nowMoney += 200000;
+            myMoneyNow.text = nowMoney.ToString();
+            checkLaps++;
+        }
 
     }
 
@@ -54,11 +62,7 @@ public class GameManager : MonoBehaviour
     public void getBuilding()
     {
 
-        if (now == 0)
-        {
-            nowMoney += 200000;
-            myMoneyNow.text = nowMoney.ToString();
-        }
+        
 
         if (now == 0 || now == 8 || now == 13 || now == 21)
         {

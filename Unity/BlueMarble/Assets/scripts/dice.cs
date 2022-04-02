@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class dice : MonoBehaviour
 {
     public GameObject diceImg;
     public GameObject btnRoll;
+    public GameObject btnBuyBuilding;
     Sprite[] sprites;
     int isDice = 0;
     int index;
@@ -33,8 +34,9 @@ public class dice : MonoBehaviour
 
     public void OnClickDiceButton()
     {
-        isDice = 1;
-        
+        isDice = 1; 
+        btnBuyBuilding.SetActive(false);
+
     }
 
     IEnumerator Dice()
