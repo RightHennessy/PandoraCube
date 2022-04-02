@@ -12,11 +12,13 @@ public class dice : MonoBehaviour
     int isDice = 0;
     int index;
     public int srcDice;
+    public int cnt;
 
     // Start is called before the first frame update
     void Start()
     {
         sprites = Resources.LoadAll<Sprite>("diceImage");
+        cnt = 0;
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class dice : MonoBehaviour
     public void OnClickDiceButton()
     {
         isDice = 1;
+        cnt++;
     }
 
     IEnumerator Dice()

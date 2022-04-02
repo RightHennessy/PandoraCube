@@ -9,13 +9,20 @@ public class playerMove : MonoBehaviour
     int start = 0;
     int index = 0;
     int move;
+    int bringCnt;
+    int compareCnt;
+
     int laps = 0;
+
     public int srcStart=0;
     
     // Start is called before the first frame update
     void Start()
     {
         transform.position = groundPos[start].transform.position;
+        bringCnt = 0;
+        compareCnt = 1;
+        move = 0;
     }
 
     // Update is called once per frame
@@ -23,10 +30,9 @@ public class playerMove : MonoBehaviour
     {
         if (move == 0)
             move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
-        else if (move > 0)
+        
+        if (move > 0)
             MovePath();
-        else if (move < 0)
-            move--;
         
         Vector2 dir = groundPos[(start + index)%26].transform.position - transform.position; 
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -47,26 +53,28 @@ public class playerMove : MonoBehaviour
             start += move;
             start %= 26;
             srcStart = start;
-            move = -1;
-            index = 0;
 
-            while (check == move)
+            while (true)
             {
-                move = GameObject.Find("btnDice").GetComponent<dice>().srcDice;
-                StartCoroutine(Stop());
+                bringCnt = GameObject.Find("btnDice").GetComponent<dice>().cnt;
+                
+                if(bringCnt != compareCnt)
+                {
+                    compareCnt = bringCnt;
+                    move=0;
+                    break;
+                }
             }
-
         }
 
-
-        if (start + index == groundPos.Length)
+        // 여기에 몇바퀴 돌았는지 체크 
+        /*if (start + index == groundPos.Length)
             laps++;
+        */
 
-    }
-    
-    IEnumerator Stop()
-    {
-         yield return null;
+        return;
+       
+
     }
     
 }

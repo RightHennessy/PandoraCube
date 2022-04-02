@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
         if (now == 0)
         {
             nowMoney += 200000;
+            myMoneyNow.text = nowMoney.ToString();
         }
 
         if (now == 0 || now == 8 || now == 13 || now == 21)
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
 
 
         // 구매가능한 경우
-        if (starSet[now].activeSelf == false)
+        if (starSet[now].activeSelf == false && nowMoney >= 20000)
         {
             btnBuyBuilding.SetActive(true);
             
